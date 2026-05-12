@@ -208,7 +208,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 531692871}
   - component: {fileID: 531692872}
   - component: {fileID: 531692870}
+  - component: {fileID: 531692875}
   - component: {fileID: 531692869}
   - component: {fileID: 531692868}
   - component: {fileID: 531692867}
@@ -388,7 +389,7 @@ Transform:
   m_GameObject: {fileID: 531692864}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -450,6 +451,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDamageEffect
   hpBar: {fileID: 1759406921}
+--- !u!114 &531692875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531692864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2426241cb15f4766bbee546a04f74d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwordSlashAEffect
+  effectPrefab: {fileID: 5225291197177455957, guid: a42c1b95383ad4da8b7920f4e956cd96, type: 3}
+  startAngleZ: -70
+  endAngleZ: 70
+  durationSeconds: 0.2
 --- !u!1 &1751152128
 GameObject:
   m_ObjectHideFlags: 0

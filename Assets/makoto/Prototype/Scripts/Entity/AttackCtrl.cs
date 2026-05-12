@@ -28,7 +28,7 @@ public class AttackCtrl : MonoBehaviour
     public void FireAttack()
     {
         if (!AttackEnabled) return;
-        attackEffect.PlayEffect(gameObject);
+        StartCoroutine(attackEffect.PlayEffect(gameObject));
 
         StartCoroutine(AttackCooldown());
     }
