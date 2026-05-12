@@ -5,15 +5,16 @@ using UnityEngine;
 public class AttackCtrl : MonoBehaviour
 {
     StatusCtrl statusCtrl;
-    public IAttackEffect attackEffect;
+    public GameObject[] effectPrefabs;
 
     public bool AttackEnabled = true;
+
+    public string attackEffect_tag_name;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         statusCtrl = GetComponent<StatusCtrl>();
-        attackEffect = GetComponent<IAttackEffect>();
     }
 
     public IEnumerator AttackCooldown()
@@ -25,17 +26,26 @@ public class AttackCtrl : MonoBehaviour
         AttackEnabled = true;
     }
 
-    public void FireAttack()
+    public void FireAttack(int effectIndex)
     {
         if (!AttackEnabled) return;
+        if (effectPrefabs[effectIndex] == null) return;
+
+        GameObject effectInstance = Instantiate(effectPrefabs[effectIndex], transform.position, Quaternion.identity, transform);
+
+        if (!effectInstance.TryGetComponent<IAttackEffect>(out var attackEffect)) return;
+
+        effectInstance.tag = attackEffect_tag_name;
+
+        attackEffect.Damage = CalculateDamage(attackEffect.BaseDamage);
         StartCoroutine(attackEffect.PlayEffect(gameObject));
 
         StartCoroutine(AttackCooldown());
     }
 
-    public int CalculateDamage()
+    public int CalculateDamage(int effect_damage)
     {
-        return statusCtrl.Strength / 2 * attackEffect.Damage; // ダメージ計算の例
+        return statusCtrl.Strength / 2 * effect_damage; // ダメージ計算の例
     }
 
     public float CalculateCooldown()

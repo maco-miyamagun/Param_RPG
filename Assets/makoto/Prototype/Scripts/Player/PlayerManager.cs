@@ -17,7 +17,7 @@ public class PlayerManager : MonoBehaviour
 
     public void OnAttack()
     {
-        attackCtrl.FireAttack();
+        attackCtrl.FireAttack(0);
     }
 
     void Start()
@@ -33,6 +33,8 @@ public class PlayerManager : MonoBehaviour
         {
             Debug.LogError("AttackCtrl component is missing!");
         }
+
+        attackCtrl.attackEffect_tag_name = "PlayerAttack";
     }
 
     void FixedUpdate()

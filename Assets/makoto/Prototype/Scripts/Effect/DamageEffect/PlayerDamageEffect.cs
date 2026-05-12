@@ -13,6 +13,8 @@ public class PlayerDamageEffect : MonoBehaviour, IDamageEffect
 
     public IEnumerator PlayDeadEffect(GameObject _from)
     {
-        throw new System.NotImplementedException();
+        hpBar.SetHp(0f, 100f);
+        Destroy(this.gameObject);
+        yield return null;
     }
 }

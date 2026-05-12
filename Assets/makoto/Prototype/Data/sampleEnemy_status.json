@@ -1,0 +1,9 @@
+{
+  "str_base": 20,
+  "vit_base": 5,
+  "agi_base": 3,
+
+  "str_growth": 0.2,
+  "vit_growth": 0.2,
+  "agi_growth": 0.7
+}
