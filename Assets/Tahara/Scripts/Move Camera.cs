@@ -2,14 +2,10 @@ using UnityEngine;
 
 public class MoveCamera : MonoBehaviour
 {
+    // 追従対象のTransform。Inspectorから設定可能。
+    // 未設定の場合はPlayerタグのオブジェクトを自動で検索します。
     [SerializeField]
     private Transform target;
-
-    [SerializeField]
-    private float smoothTime = 0.1f;
-
-    private Vector3 offset;
-    private Vector3 currentVelocity;
 
     private void Awake()
     {
@@ -27,14 +23,6 @@ public class MoveCamera : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        if (target != null)
-        {
-            offset = transform.position - target.position;
-        }
-    }
-
     private void LateUpdate()
     {
         if (target == null)
@@ -42,7 +30,11 @@ public class MoveCamera : MonoBehaviour
             return;
         }
 
-        Vector3 targetPosition = target.position + offset;
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, smoothTime);
+        // プレイヤーのX,Y位置をそのままカメラの中心にする
+        transform.position = new Vector3(
+            target.position.x,
+            target.position.y,
+            transform.position.z
+        );
     }
 }
