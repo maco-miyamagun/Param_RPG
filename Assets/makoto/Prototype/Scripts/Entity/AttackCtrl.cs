@@ -1,22 +1,28 @@
 using System.Collections;
 using UnityEngine;
 
+// 攻撃エフェクトの発生とクールダウンを管理する
 [RequireComponent(typeof(StatusCtrl))]
 public class AttackCtrl : MonoBehaviour
 {
+    // ダメージ計算用ステータス
     StatusCtrl statusCtrl;
+    // 生成する攻撃エフェクトのプレハブ
     public GameObject[] effectPrefabs;
 
+    // 攻撃可能かどうか
     public bool AttackEnabled = true;
 
+    // エフェクトに付与するタグ
     public string attackEffect_tag_name;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // 必須コンポーネントを取得する
     void Start()
     {
         statusCtrl = GetComponent<StatusCtrl>();
     }
 
+    // 攻撃クールダウンの処理
     public IEnumerator AttackCooldown()
     {
         if (!AttackEnabled) yield break;
@@ -26,6 +32,7 @@ public class AttackCtrl : MonoBehaviour
         AttackEnabled = true;
     }
 
+    // 指定インデックスの攻撃エフェクトを発生させる
     public void FireAttack(int effectIndex)
     {
         if (!AttackEnabled) return;
@@ -43,11 +50,13 @@ public class AttackCtrl : MonoBehaviour
         StartCoroutine(AttackCooldown());
     }
 
+    // ステータスからダメージを計算する
     public int CalculateDamage(int effect_damage)
     {
         return statusCtrl.Strength / 2 * effect_damage; // ダメージ計算の例
     }
 
+    // ステータスからクールダウン時間を計算する
     public float CalculateCooldown()
     {
         return Mathf.Max(0.2f, 2 - statusCtrl.Agility / 10); // クールダウン時間の例
