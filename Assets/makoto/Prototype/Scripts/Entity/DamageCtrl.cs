@@ -39,12 +39,15 @@ public class DamageCtrl : MonoBehaviour
     {
         if (collision.CompareTag(attackEffect_tag_name))
         {
-            if (collision.TryGetComponent<AttackCtrl>(out var enemyAttack))
+            if (collision.TryGetComponent<IAttackEffect>(out var effect))
             {
-                int damage = enemyAttack.CalculateDamage();
-                enemyAttack.attackEffect.HitTarget(gameObject);
+                if (effect == null)
+                {
+                    Debug.LogError("AttackEffect component is missing on the collided object!");
+                }
 
-                TakeDamage(damage);
+                TakeDamage(effect.Damage);
+                effect.HitTarget(gameObject);
             }
         }
     }
@@ -56,11 +59,11 @@ public class DamageCtrl : MonoBehaviour
 
         if (IsDead())
         {
-            damageEffect.PlayDeadEffect(gameObject);
+            StartCoroutine(damageEffect.PlayDeadEffect(gameObject));
         }
         else
         {
-            damageEffect.PlayEffect(gameObject, life, statusCtrl.HealthPoint);
+            StartCoroutine(damageEffect.PlayEffect(gameObject, life, statusCtrl.HealthPoint));
         }
     }
 
