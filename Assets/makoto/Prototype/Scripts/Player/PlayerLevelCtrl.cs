@@ -1,16 +1,21 @@
 using UnityEngine;
 
+// プレイヤーのレベルと経験値を管理する
 [RequireComponent(typeof(StatusCtrl))]
 public class PlayerLevelCtrl : MonoBehaviour
 {
+    // レベルに応じたステータス計算に使う
     StatusCtrl statusCtrl;
 
+    // 現在レベル
     [SerializeField]
     int level = 1;
 
+    // 現在経験値
     [SerializeField]
     int experience = 0;
 
+    // ステータス初期化
     void Awake()
     {
         statusCtrl = GetComponent<StatusCtrl>();
@@ -21,6 +26,7 @@ public class PlayerLevelCtrl : MonoBehaviour
         }
     }
 
+    // レベル設定時にステータスを更新
     public int Level
     {
         get { return level; }
@@ -37,6 +43,7 @@ public class PlayerLevelCtrl : MonoBehaviour
         }
     }
 
+    // 経験値設定時にレベルアップ判定
     public int Experience
     {
         get { return experience; }
@@ -50,13 +57,14 @@ public class PlayerLevelCtrl : MonoBehaviour
         }
     }
 
+    // 経験値が閾値を超えたらレベルアップ
     private void CheckLevelUp()
     {
         int experienceThreshold = GetExperienceForNextLevel(level);
         if (experience >= experienceThreshold)
         {
             level++;
-            experience -= experienceThreshold; // 経験値をリセット
+            experience -= experienceThreshold; // 余剰分を繰り越す
             Debug.Log("Level Up! Current Level: " + level);
             if (statusCtrl != null)
             {
@@ -65,6 +73,7 @@ public class PlayerLevelCtrl : MonoBehaviour
         }
     }
 
+    // 次のレベルに必要な経験値を返す
     private int GetExperienceForNextLevel(int current_level)
     {
         return current_level * 100; // 次のレベルに必要な経験値の例
