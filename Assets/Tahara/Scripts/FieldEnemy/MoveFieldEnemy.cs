@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveFieldEnemy : MonoBehaviour
 {
@@ -71,6 +72,15 @@ public class MoveFieldEnemy : MonoBehaviour
         {
             isWaiting = false;
             SetNewTargetPosition();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Player タグのオブジェクトに接触したらバトルシーンへ移動する
+        if (other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("PrototypeBattleScene");
         }
     }
 
