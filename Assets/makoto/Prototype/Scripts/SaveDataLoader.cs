@@ -73,6 +73,7 @@ public class SaveDataLoader : MonoBehaviour
 
 
 //セーブデータのクラス
+[System.Serializable]
 public class SaveData
 {
     //プレイヤーレベル
