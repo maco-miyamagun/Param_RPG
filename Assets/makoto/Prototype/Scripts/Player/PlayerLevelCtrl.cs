@@ -31,7 +31,10 @@ public class PlayerLevelCtrl : MonoBehaviour
             statusCtrl.SetStatusFromJson();
             statusCtrl.SetStatusForLevel(level);
         }
+    }
 
+    void Start()
+    {
         if (saveDataLoader != null)
         {
             SaveData currentSaveData = saveDataLoader.GetCurrentSaveData();
