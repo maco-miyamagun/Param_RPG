@@ -8,21 +8,35 @@ public class PlayerLevelCtrl : MonoBehaviour
     StatusCtrl statusCtrl;
 
     // 現在レベル
+    [Header("現在レベル")]
     [SerializeField]
     int level = 1;
 
     // 現在経験値
+    [Header("現在経験値")]
     [SerializeField]
     int experience = 0;
+
+    // セーブデータローダー
+    SaveDataLoader saveDataLoader;
 
     // ステータス初期化
     void Awake()
     {
+        saveDataLoader = FindFirstObjectByType<SaveDataLoader>();
+
         statusCtrl = GetComponent<StatusCtrl>();
         if (statusCtrl != null)
         {
             statusCtrl.SetStatusFromJson();
             statusCtrl.SetStatusForLevel(level);
+        }
+
+        if (saveDataLoader != null)
+        {
+            SaveData currentSaveData = saveDataLoader.GetCurrentSaveData();
+            Level = currentSaveData.level;
+            Experience = currentSaveData.experience;
         }
     }
 
