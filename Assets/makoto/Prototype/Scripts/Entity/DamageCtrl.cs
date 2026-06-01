@@ -11,10 +11,12 @@ public class DamageCtrl : MonoBehaviour
     IDamageEffect damageEffect;
 
     // 現在HP
+    [Header("現在HP")]
     [SerializeField]
     int life = 0;
 
     // 当たり判定で受け付ける攻撃タグ
+    [Header("攻撃エフェクトのタグ")]
     [SerializeField] private string attackEffect_tag_name;
 
     // 必須コンポーネントを取得してHPを初期化する

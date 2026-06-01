@@ -8,12 +8,15 @@ public class AttackCtrl : MonoBehaviour
     // ダメージ計算用ステータス
     StatusCtrl statusCtrl;
     // 生成する攻撃エフェクトのプレハブ
+    [Header("攻撃エフェクトのプレハブ")]
     public GameObject[] effectPrefabs;
 
     // 攻撃可能かどうか
+    [Header("攻撃可能かどうか")]
     public bool AttackEnabled = true;
 
     // エフェクトに付与するタグ
+    [Header("攻撃エフェクトのタグ")]
     public string attackEffect_tag_name;
 
     // 必須コンポーネントを取得する

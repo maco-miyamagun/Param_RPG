@@ -4,6 +4,7 @@ using UnityEngine;
 public class StatusCtrl : MonoBehaviour
 {
     // ステータスのJSONデータ
+    [Header("ステータスのJSONデータ")]
     [SerializeField]
     TextAsset statusText;
 
@@ -11,21 +12,26 @@ public class StatusCtrl : MonoBehaviour
     int STRENGTH_BASE;
     float STRENGTH_GROWTH;
     // 現在の腕力
+    [Header("現在の腕力")]
     public int Strength;
 
     int VITALITY_BASE;
     float VITALITY_GROWTH;
     // 現在の体力
+    [Header("現在の体力")]
     public int Vitality;
 
     int AGILITY_BASE;
     float AGILITY_GROWTH;
     // 現在の敏捷
+    [Header("現在の敏捷")]
     public int Agility;
 
     // 派生ステータス
+    [Header("最大HP")]
     public int HealthPoint;
 
+    [Header("防御力")]
     public int DefensePoint;
 
     // JSONから基礎値と成長率を読み込む

@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class HpBarUI : MonoBehaviour
 {
+    [Header("HpバーのUIドキュメント")]
     [SerializeField] UIDocument hpBar;
 
     VisualElement slider;

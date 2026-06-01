@@ -6,14 +6,19 @@ using UnityEngine;
 public class SwordSlashAEffect : MonoBehaviour, IAttackEffect
 {
     // 基礎ダメージ
+    [Header("基礎ダメージ")]
     public int BaseDamage { get; set; } = 2;
     // 計算後の最終ダメージ
+    [Header("最終ダメージ")]
     public int Damage { get; set; } = 0;
     // 回転開始角度
+    [Header("回転開始角度")]
     [SerializeField] float startAngleZ = -70f;
     // 回転終了角度
+    [Header("回転終了角度")]
     [SerializeField] float endAngleZ = 70f;
     // 回転にかける時間
+    [Header("回転にかける時間")]
     [SerializeField] float durationSeconds = 0.01f;
 
     // ヒット済みなら回転を止める
