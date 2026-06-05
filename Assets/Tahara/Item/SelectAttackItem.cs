@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Playerにアタッチして、Input Systemの数字キーで攻撃アイテムを選択するためのスクリプト
+/// </summary>
 public class SelectAttackItem : MonoBehaviour
 {
     private ItemManager itemManager;
 
     void Start()
     {
-        // ItemManagerの参照を取得
+        // ItemManagerの参照を取得する。Playerにアタッチした場合でも探索できるようにする。
         itemManager = GetComponent<ItemManager>();
         if (itemManager == null)
         {
@@ -27,9 +30,13 @@ public class SelectAttackItem : MonoBehaviour
 
     void Update()
     {
+        // 毎フレーム、数字キーが押されたかをチェックする
         CheckNumberKeyInput();
     }
 
+    /// <summary>
+    /// 1～0の数字キー入力をチェックし、対応するAttackItemsのインデックスを選択する
+    /// </summary>
     void CheckNumberKeyInput()
     {
         if (itemManager == null || itemManager.AttackItems == null || itemManager.AttackItems.Count == 0)
@@ -43,6 +50,7 @@ public class SelectAttackItem : MonoBehaviour
             return;
         }
 
+        // 1キーはAttackItems[0]、2キーはAttackItems[1]、...、0キーはAttackItems[9]を選択する
         if (keyboard.digit1Key.wasPressedThisFrame)
         {
             SelectAttackItemByIndex(0);
@@ -103,6 +111,9 @@ public class SelectAttackItem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 指定したインデックスのAttackItemsを選択し、結果をコンソールに出力する
+    /// </summary>
     void SelectAttackItemByIndex(int index)
     {
         if (index < itemManager.AttackItems.Count)
@@ -116,6 +127,9 @@ public class SelectAttackItem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// インデックス番号から対応するキー名を返す
+    /// </summary>
     string GetKeyName(int index)
     {
         return index == 9 ? "0" : (index + 1).ToString();
