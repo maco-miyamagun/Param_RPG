@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class EnemyManager : MonoBehaviour
     //生成された敵の参照
     GameObject enemy;
 
+    [SerializeField]
+    PlayerLevelCtrl playerLevelCtrl;
+
     void Start()
     {
         //敵の初期化
@@ -21,12 +25,22 @@ public class EnemyManager : MonoBehaviour
 
     public void WinPlayer()
     {
+        playerLevelCtrl.Experience += 100;
+
+        SaveData save_data = saveDataLoader.GetCurrentSaveData();
+        save_data.experience = playerLevelCtrl.Experience;
+        save_data.level = playerLevelCtrl.Level;
+        saveDataLoader.WriteSaveData();
+
         Debug.Log("Player wins!");
+        // SceneManager.LoadScene("map");
     }
 
     public void LosePlayer()
     {
         Debug.Log("Player loses!");
+
+        // SceneManager.LoadScene("game_over");
     }
 
     //敵の初期化

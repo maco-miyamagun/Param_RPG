@@ -285,9 +285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978bba61cce4b4c0584525a7549f40b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
-  player: {fileID: 909513496}
   saveDataLoader: {fileID: 1283684409}
   sampleEnemyPrefab: {fileID: 3330477016070990107, guid: b1fea7d228d554947a8dba81ec2d8173, type: 3}
+  playerLevelCtrl: {fileID: 909513503}
 --- !u!4 &829429010
 Transform:
   m_ObjectHideFlags: 0
@@ -303,11 +303,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
---- !u!1 &909513496 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4053237190904423100, guid: 4f967a1702fef409295e900c5dcd114f, type: 3}
+--- !u!114 &909513503 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1298479228571470050, guid: 4f967a1702fef409295e900c5dcd114f, type: 3}
   m_PrefabInstance: {fileID: 3622628436794620004}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b78b143e59947d2bee74d385345c8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerLevelCtrl
 --- !u!1 &1283684408
 GameObject:
   m_ObjectHideFlags: 0
