@@ -50,7 +50,6 @@ public class SelectAttackItem : MonoBehaviour
             return;
         }
 
-        // 1キーはAttackItems[0]、2キーはAttackItems[1]、...、0キーはAttackItems[9]を選択する
         if (keyboard.digit1Key.wasPressedThisFrame)
         {
             SelectAttackItemByIndex(0);
@@ -68,47 +67,6 @@ public class SelectAttackItem : MonoBehaviour
             SelectAttackItemByIndex(2);
             return;
         }
-
-        if (keyboard.digit4Key.wasPressedThisFrame)
-        {
-            SelectAttackItemByIndex(3);
-            return;
-        }
-
-        if (keyboard.digit5Key.wasPressedThisFrame)
-        {
-            SelectAttackItemByIndex(4);
-            return;
-        }
-
-        if (keyboard.digit6Key.wasPressedThisFrame)
-        {
-            SelectAttackItemByIndex(5);
-            return;
-        }
-
-        if (keyboard.digit7Key.wasPressedThisFrame)
-        {
-            SelectAttackItemByIndex(6);
-            return;
-        }
-
-        if (keyboard.digit8Key.wasPressedThisFrame)
-        {
-            SelectAttackItemByIndex(7);
-            return;
-        }
-
-        if (keyboard.digit9Key.wasPressedThisFrame)
-        {
-            SelectAttackItemByIndex(8);
-            return;
-        }
-
-        if (keyboard.digit0Key.wasPressedThisFrame)
-        {
-            SelectAttackItemByIndex(9);
-        }
     }
 
     /// <summary>
@@ -116,15 +74,15 @@ public class SelectAttackItem : MonoBehaviour
     /// </summary>
     void SelectAttackItemByIndex(int index)
     {
-        if (index < itemManager.AttackItems.Count)
-        {
-            string selectedItem = itemManager.AttackItems[index];
-            Debug.Log($"選択されたアイテム: {selectedItem} (キー: {GetKeyName(index)})");
-        }
-        else
+        if (itemManager.AttackItems == null || index < 0 || index >= itemManager.AttackItems.Count)
         {
             Debug.LogWarning($"キー {GetKeyName(index)} (インデックス {index}): このインデックスのアイテムは存在しません");
+            return;
         }
+
+        itemManager.SelectedAttackItemIndex = index;
+        string selectedItem = itemManager.AttackItems[index];
+        Debug.Log($"選択されたアイテム: {selectedItem} (キー: {GetKeyName(index)})");
     }
 
     /// <summary>
@@ -132,6 +90,6 @@ public class SelectAttackItem : MonoBehaviour
     /// </summary>
     string GetKeyName(int index)
     {
-        return index == 9 ? "0" : (index + 1).ToString();
+        return (index + 1).ToString();
     }
 }
