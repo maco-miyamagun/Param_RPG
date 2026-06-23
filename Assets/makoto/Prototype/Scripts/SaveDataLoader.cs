@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.IO;
+using System.Collections.Generic;
 
 public class SaveDataLoader : MonoBehaviour
 {
@@ -82,4 +83,12 @@ public class SaveData
     public int experience;
     //戦闘する敵のID
     public string battle_enemy_id;
+
+    public List<string> weapon_list;
+
+    public int life;
+    public int health_item_num;
+
+    public float x_pos;
+    public float y_pos;
 }

@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "TANIGUTI_ZEMI.slnx"
+    "dotnet.defaultSolution": "Param_RPG.slnx"
 }

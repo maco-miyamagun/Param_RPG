@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +18,9 @@ public class EnemyManager : MonoBehaviour
     [SerializeField]
     PlayerLevelCtrl playerLevelCtrl;
 
+    [SerializeField]
+    DamageCtrl player_damageCtrl;
+
     void Start()
     {
         //敵の初期化
@@ -30,10 +34,13 @@ public class EnemyManager : MonoBehaviour
         SaveData save_data = saveDataLoader.GetCurrentSaveData();
         save_data.experience = playerLevelCtrl.Experience;
         save_data.level = playerLevelCtrl.Level;
+        save_data.life = player_damageCtrl.Life;
+        save_data.x_pos = playerLevelCtrl.transform.position.x;
+        save_data.y_pos = playerLevelCtrl.transform.position.y;
         saveDataLoader.WriteSaveData();
 
         Debug.Log("Player wins!");
-        // SceneManager.LoadScene("map");
+        SceneManager.LoadScene("Field");
     }
 
     public void LosePlayer()
