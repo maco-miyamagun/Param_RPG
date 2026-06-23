@@ -11,7 +11,7 @@ public class HpBarUI : MonoBehaviour
     VisualElement slider;
     float maxWidth;
 
-    void Start()
+    void Awake()
     {
         slider = hpBar.rootVisualElement.Query<VisualElement>("Slider").First();
 

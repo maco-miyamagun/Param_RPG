@@ -46,6 +46,12 @@ public class PlayerLevelCtrl : MonoBehaviour
             DamageCtrl damage_ctrl = GetComponent<DamageCtrl>();
 
             damage_ctrl.Life = currentSaveData.life;
+
+            HpBarUI hpBarUI = FindFirstObjectByType<HpBarUI>();
+
+            if (hpBarUI == null) return;
+
+            hpBarUI.SetHp(damage_ctrl.Life, statusCtrl.HealthPoint);
         }
     }
 

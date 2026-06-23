@@ -35,8 +35,6 @@ public class EnemyManager : MonoBehaviour
         save_data.experience = playerLevelCtrl.Experience;
         save_data.level = playerLevelCtrl.Level;
         save_data.life = player_damageCtrl.Life;
-        save_data.x_pos = playerLevelCtrl.transform.position.x;
-        save_data.y_pos = playerLevelCtrl.transform.position.y;
         saveDataLoader.WriteSaveData();
 
         Debug.Log("Player wins!");
