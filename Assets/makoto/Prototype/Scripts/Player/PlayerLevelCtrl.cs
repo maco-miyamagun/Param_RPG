@@ -40,6 +40,12 @@ public class PlayerLevelCtrl : MonoBehaviour
             SaveData currentSaveData = saveDataLoader.GetCurrentSaveData();
             Level = currentSaveData.level;
             Experience = currentSaveData.experience;
+
+            transform.position = new(currentSaveData.x_pos, currentSaveData.y_pos);
+
+            DamageCtrl damage_ctrl = GetComponent<DamageCtrl>();
+
+            damage_ctrl.Life = currentSaveData.life;
         }
     }
 

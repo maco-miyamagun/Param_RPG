@@ -25,7 +25,7 @@ public class DamageCtrl : MonoBehaviour
         statusCtrl = GetComponent<StatusCtrl>();
         damageEffect = GetComponent<IDamageEffect>();
 
-        if (statusCtrl != null)
+        if (statusCtrl != null && Life == 0)
         {
             Life = statusCtrl.HealthPoint;
         }
@@ -47,6 +47,8 @@ public class DamageCtrl : MonoBehaviour
     // 攻撃エフェクトに触れたらダメージを受ける
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (attackEffect_tag_name == "") return;
+
         if (collision.CompareTag(attackEffect_tag_name))
         {
             if (collision.TryGetComponent<IAttackEffect>(out var effect))

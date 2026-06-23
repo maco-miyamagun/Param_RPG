@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4801944959542434025}
   - component: {fileID: 2670940829840696680}
   - component: {fileID: 4569152670648225797}
+  - component: {fileID: 6247834713388008805}
   m_Layer: 0
   m_Name: PlayerField
   m_TagString: Player
@@ -198,6 +199,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6247834713388008805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4053237190904423100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10704d8bc3e445c695221298a3c5aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageCtrl
+  life: 0
+  attackEffect_tag_name: 
 --- !u!1 &7953635852762939500
 GameObject:
   m_ObjectHideFlags: 0
