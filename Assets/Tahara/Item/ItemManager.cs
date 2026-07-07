@@ -8,6 +8,9 @@ public class ItemManager : MonoBehaviour
     public int SelectedAttackItemIndex; // 現在選択中の攻撃アイテムのインデックス
     public const int MaxAttackItems = 3; // 攻撃アイテムの所持上限
 
+    public AttackItem[] attackItemPrefabs;
+
+
     void Start()
     {
         // ゲーム開始時にリストと選択状態を初期化する
@@ -43,6 +46,14 @@ public class ItemManager : MonoBehaviour
         string replacedItem = AttackItems[SelectedAttackItemIndex];
         AttackItems[SelectedAttackItemIndex] = itemName;
         Debug.Log($"AttackItemを交換しました: {replacedItem} → {itemName} (インデックス {SelectedAttackItemIndex + 1})");
+
+        for (int i = 0; i < attackItemPrefabs.Length; i++)
+        {
+            if (replacedItem == attackItemPrefabs[i].itemName)
+            {
+                Instantiate(attackItemPrefabs[i], transform.position, Quaternion.identity);
+            }
+        }
     }
 }
 
