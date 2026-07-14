@@ -1,5 +1,3 @@
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
@@ -8,7 +6,7 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] PlayerShareData playerShareData;
     [SerializeField] PlayerLevelCtrl playerLevelCtrl;
 
-    void Start()
+    void Awake()
     {
         foreach (var item in FindObjectsByType<PlayerShareData>(FindObjectsSortMode.None))
         {

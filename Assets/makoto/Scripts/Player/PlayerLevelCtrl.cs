@@ -31,9 +31,9 @@ public class PlayerLevelCtrl : MonoBehaviour
     // レベルに応じて各ステータスを計算する
     public void SetStatusForLevel(int level)
     {
-        const int STR_BASE = 5;
-        const int VIT_BASE = 5;
-        const int AGI_BASE = 30;
+        const int STR_BASE = 2;
+        const int VIT_BASE = 2;
+        const int AGI_BASE = 5;
 
         const float STR_GROWTH = 1.2f;
         const float VIT_GROWTH = 1.2f;
