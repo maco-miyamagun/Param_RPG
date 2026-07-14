@@ -6,14 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Battle.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Tahara/Scean/Field.unity
     guid: 561a41a97275344208b4d333fd5ec11b
   - enabled: 1
-    path: Assets/makoto/Prototype/Scenes/PrototypeBattleScene.unity
-    guid: 97c02345a86f44616ad29053d2ba67d2
+    path: Assets/Scenes/Map01.unity
+    guid: 9db47d12b8cf74b9991f1f111c1b4cd6
+  - enabled: 1
+    path: Assets/Scenes/GameData.unity
+    guid: 9b0c7eed7c59644f28b02dc9ba49aa16
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 5c478a1388d1e4ad89e287f143d08306, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: e0930979529f44120a0d87bf0788d8a3, type: 3}
