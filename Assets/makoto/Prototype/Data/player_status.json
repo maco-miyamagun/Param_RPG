@@ -1,9 +1,0 @@
-{
-  "str_base": 5,
-  "vit_base": 5,
-  "agi_base": 10,
-
-  "str_growth": 1.2,
-  "vit_growth": 1.2,
-  "agi_growth": 1.2
-}
