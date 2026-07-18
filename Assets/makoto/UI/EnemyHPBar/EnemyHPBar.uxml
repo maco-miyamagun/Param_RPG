@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/makoto/UI/EnemyHPBar/EnemyHPBar.uss?fileID=7433441132597879392&amp;guid=b0d35c03115e04b3d89808a8a4974c65&amp;type=3#EnemyHPBar"/>
+    <ui:VisualElement name="Base">
+        <ui:VisualElement name="HPBarBase">
+            <ui:VisualElement name="HPBar"/>
+            <ui:VisualElement name="HPBarEffect"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

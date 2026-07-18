@@ -35,7 +35,9 @@ public class Weapon : MonoBehaviour
         {
             if (!collision.gameObject.TryGetComponent<EntityDamageCtrl>(out var damage_ctrl)) return;
 
+            damage_ctrl.DamageAnim();
             damage_ctrl.TakeDamage(attackCtrl.CalculateDamage(skillStatus.base_damage));
+
             Destroy(this.transform.parent.gameObject);
         }
     }

@@ -45,30 +45,18 @@ public class EnemyMoveCtrl : MonoBehaviour
         return (player_transform.position - rb.position).normalized;
     }
 
+    public Vector2 GetPlayerDeltaDistance()
+    {
+        return player_transform.position - rb.position;
+    }
+
     // 方向を変える
     public void Direct(Vector2 moveInput)
     {
-        if (moveInput.y > 0)
-        {
-            fire_core.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        }
-        else if (moveInput.y < 0)
-        {
-            fire_core.transform.rotation = Quaternion.Euler(0f, 0f, 180f);
-        }
-
-        if (Mathf.Abs(moveInput.x) < Mathf.Abs(moveInput.y))
-        {
+        if (moveInput == Vector2.zero)
             return;
-        }
 
-        if (moveInput.x > 0)
-        {
-            fire_core.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
-        }
-        else if (moveInput.x < 0)
-        {
-            fire_core.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
-        }
+        float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+        fire_core.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
     }
 }
