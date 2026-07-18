@@ -14,8 +14,7 @@ public class WeaponCtrl : MonoBehaviour
 
     [SerializeField] GameObject fire_point; // 発射点
 
-    // 入力システムから攻撃入力を受け取る
-    public void OnAttack()
+    public void Attack()
     {
         // 攻撃ができない場合と武器が存在しない場合に処理を中断
         if (!attackCtrl.AttackEnabled) return;

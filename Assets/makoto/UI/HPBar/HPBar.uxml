@@ -1,7 +1,10 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI/HPBar/HPBar.uss?fileID=7433441132597879392&amp;guid=c0e10c3e6b9c549f6a3e641ffbcd2759&amp;type=3#HPBar"/>
+    <Style src="project://database/Assets/makoto/UI/HPBar/HPBar.uss?fileID=7433441132597879392&amp;guid=c0e10c3e6b9c549f6a3e641ffbcd2759&amp;type=3#HPBar"/>
     <ui:VisualElement name="Base">
         <ui:Label text="耐久力" name="Name"/>
-        <ui:VisualElement name="HPBar"/>
+        <ui:VisualElement name="HPBarBase">
+            <ui:VisualElement name="HPBar"/>
+            <ui:VisualElement name="HPBarEffect"/>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

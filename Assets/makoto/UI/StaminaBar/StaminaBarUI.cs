@@ -12,7 +12,7 @@ public class StaminaBarUI : MonoBehaviour
 
     void Start()
     {
-        slider = staminaBar.rootVisualElement.Q<VisualElement>("HPBar");
+        slider = staminaBar.rootVisualElement.Q<VisualElement>("StaminaBar");
     }
 
     void FixedUpdate()
@@ -26,6 +26,11 @@ public class StaminaBarUI : MonoBehaviour
             return;
 
         float ratio = stamina / maxStamina;
-        slider.style.width = Length.Percent(ratio * 80.0f);
+        slider.style.width = Length.Percent(ratio * 100.0f);
+    }
+
+    public void SetVisible(bool flag)
+    {
+        staminaBar.rootVisualElement.style.visibility = flag ? Visibility.Visible : Visibility.Hidden;
     }
 }

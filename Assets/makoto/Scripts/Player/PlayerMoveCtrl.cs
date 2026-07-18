@@ -15,6 +15,8 @@ public class PlayerMoveCtrl : MonoBehaviour
 
     bool stamina_finished = false; // スタミナが尽きているか
 
+    [SerializeField] StaminaBarUI staminaBarUI;
+
     // 入力システムから移動入力を受け取る
     public void OnMove(InputValue value)
     {
@@ -30,7 +32,7 @@ public class PlayerMoveCtrl : MonoBehaviour
     // 入力方向に応じて移動させる
     public void Move(Vector2 moveInput)
     {
-        Vector2 moveDirection = new(moveInput.x, moveInput.y);
+        Vector2 moveDirection = new Vector2(moveInput.x, moveInput.y).normalized;
 
         float moveSpeed = CalclateMoveSpeed(moveDirection.magnitude != 0);
 
@@ -40,23 +42,11 @@ public class PlayerMoveCtrl : MonoBehaviour
     // 方向を変える
     public void Direct(Vector2 moveInput)
     {
-        if (moveInput.y > 0)
-        {
-            fire_core.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        }
-        else if (moveInput.y < 0)
-        {
-            fire_core.transform.rotation = Quaternion.Euler(0f, 0f, 180f);
-        }
+        if (moveInput == Vector2.zero)
+            return;
 
-        if (moveInput.x > 0)
-        {
-            fire_core.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
-        }
-        else if (moveInput.x < 0)
-        {
-            fire_core.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
-        }
+        float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+        fire_core.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
     }
 
     // 移動スピードを決める（スタミナ管理）
@@ -68,6 +58,8 @@ public class PlayerMoveCtrl : MonoBehaviour
         if (entityStatus.stamina <= 0)
         {
             stamina_finished = true;
+
+            staminaBarUI.SetVisible(true);
         }
 
         if (stamina_finished)
@@ -78,6 +70,8 @@ public class PlayerMoveCtrl : MonoBehaviour
             {
                 entityStatus.stamina = entityStatus.STAMINA_MAX;
                 stamina_finished = false;
+
+                staminaBarUI.SetVisible(false);
             }
 
             return entityStatus.AGI * 0.2f;
@@ -85,11 +79,15 @@ public class PlayerMoveCtrl : MonoBehaviour
 
         if (!Keyboard.current.shiftKey.isPressed && entityStatus.stamina <= entityStatus.STAMINA_MAX)
         {
+            staminaBarUI.SetVisible(true);
+
             entityStatus.stamina += Time.deltaTime * INCREMENT_STAMINA;
 
             if (entityStatus.stamina >= entityStatus.STAMINA_MAX)
             {
                 entityStatus.stamina = entityStatus.STAMINA_MAX;
+
+                staminaBarUI.SetVisible(false);
             }
 
             return entityStatus.AGI;
@@ -98,6 +96,8 @@ public class PlayerMoveCtrl : MonoBehaviour
         if (Keyboard.current.shiftKey.isPressed && isMoving)
         {
             entityStatus.stamina -= Time.deltaTime * DECREMENT_STAMINA;
+
+            staminaBarUI.SetVisible(true);
         }
 
         return entityStatus.AGI * 1.7f;

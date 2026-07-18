@@ -335,6 +335,12 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "pause",
+            "id": "9e07fa40-4113-48ec-96bb-893e58a96fd5",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": []
