@@ -1,0 +1,15 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/makoto/UI/BattleClear/BattleClear.uss?fileID=7433441132597879392&amp;guid=825dd390c82c542219add15c92687ab4&amp;type=3#BattleClear"/>
+    <ui:VisualElement name="BG">
+        <ui:VisualElement name="Container">
+            <ui:Label text="勝利!" name="Name"/>
+            <ui:Label text="Jキーで続行" name="Discription"/>
+            <ui:VisualElement name="Base">
+                <ui:Label text="LV.1" name="Level"/>
+                <ui:VisualElement name="EXPBarBase">
+                    <ui:VisualElement name="EXPBar"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

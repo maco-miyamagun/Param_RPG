@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/makoto/UI/BattleLose/BattleLose.uss?fileID=7433441132597879392&amp;guid=600579bbe9064424cabb39a6ee23f586&amp;type=3#BattleLose"/>
+    <ui:VisualElement name="BG">
+        <ui:VisualElement name="Container">
+            <ui:Label text="敗北…" name="Name"/>
+            <ui:Label text="Jキーでコンテニュー" name="Discription"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

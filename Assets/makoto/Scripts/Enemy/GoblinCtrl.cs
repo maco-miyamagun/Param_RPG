@@ -8,7 +8,7 @@ public class GoblinCtrl : MonoBehaviour
     [SerializeField] WeaponCtrl weaponCtrl;
     [SerializeField] EntityDamageCtrl damageCtrl;
 
-    BattleManage battleManage;
+    PlayerBattle playerBattle;
 
     [SerializeField] EnemyMoveCtrl move_ctrl;
 
@@ -17,7 +17,7 @@ public class GoblinCtrl : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        battleManage = FindObjectsByType<BattleManage>(FindObjectsSortMode.None)[0];
+        playerBattle = FindObjectsByType<PlayerBattle>(FindObjectsSortMode.None)[0];
 
         StartCoroutine(AILogic());
     }
@@ -35,14 +35,14 @@ public class GoblinCtrl : MonoBehaviour
             yield return new WaitForSeconds(GetAnimationClipLength("EntityAnimChargeSkill"));
 
             if (damageCtrl.IsDead()) break;
-            weaponCtrl.OnAttack();
+            weaponCtrl.Attack();
             yield return new WaitForSeconds(1f);
         }
 
         damageCtrl.DeadAnim();
         yield return new WaitForSeconds(GetAnimationClipLength("EntityAnimDamaged"));
 
-        battleManage.WinPlayer();
+        playerBattle.WinPlayer();
         Destroy(this.gameObject);
     }
 
