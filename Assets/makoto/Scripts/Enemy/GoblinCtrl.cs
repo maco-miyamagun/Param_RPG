@@ -14,6 +14,10 @@ public class GoblinCtrl : MonoBehaviour
 
     [SerializeField] Animator animator;
 
+    const int SWORD_WEAPON = 0;
+    const int SHIELD_WEAPON = 1;
+    const int BOW_WEAPON = 2;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,26 +28,101 @@ public class GoblinCtrl : MonoBehaviour
 
     IEnumerator AILogic()
     {
-        while (true)
+        while (!damageCtrl.IsDead())
         {
-            if (damageCtrl.IsDead()) break;
-            move_ctrl.Direct(move_ctrl.GetPlayerDirection());
-            yield return ChasingPlayer();
+            int dice = ChoiceAttackWeapon();
+            weaponCtrl.use_weapon_index = dice;
 
-            if (damageCtrl.IsDead()) break;
-            animator.Play("EntityAnimChargeSkill", 0);
-            yield return new WaitForSeconds(GetAnimationClipLength("EntityAnimChargeSkill"));
-
-            if (damageCtrl.IsDead()) break;
-            weaponCtrl.Attack();
-            yield return new WaitForSeconds(1f);
+            if (dice == SWORD_WEAPON)
+            {
+                yield return SwordAttack();
+            }
+            else if (dice == SHIELD_WEAPON)
+            {
+                yield return ShieldDefense();
+            }
+            else if (dice == BOW_WEAPON)
+            {
+                yield return BowAttack();
+            }
         }
+
+        move_ctrl.is_skip_move = true;
 
         damageCtrl.DeadAnim();
         yield return new WaitForSeconds(GetAnimationClipLength("EntityAnimDamaged"));
 
         playerBattle.WinPlayer();
         Destroy(this.gameObject);
+    }
+
+    int ChoiceAttackWeapon()
+    {
+        int dice = Random.Range(1, 10);
+
+        if (dice > 8)
+        {
+            return SHIELD_WEAPON;
+        }
+        else if (dice < 3)
+        {
+            return BOW_WEAPON;
+        }
+        else
+        {
+            return SWORD_WEAPON;
+        }
+    }
+
+    IEnumerator SwordAttack()
+    {
+        move_ctrl.Direct(move_ctrl.GetPlayerDirection());
+        yield return ChasingPlayer();
+
+        if (damageCtrl.IsDead()) yield break;
+        animator.Play("EntityAnimChargeSkill", 0);
+        yield return new WaitForSeconds(GetAnimationClipLength("EntityAnimChargeSkill"));
+
+        if (damageCtrl.IsDead()) yield break;
+        weaponCtrl.Attack();
+        yield return new WaitForSeconds(1f);
+    }
+
+    IEnumerator ShieldDefense()
+    {
+        move_ctrl.is_skip_move = true;
+
+        if (damageCtrl.IsDead()) yield break;
+        move_ctrl.Direct(move_ctrl.GetPlayerDirection());
+        animator.Play("EntityAnimChargeSkill", 0);
+        yield return new WaitForSeconds(GetAnimationClipLength("EntityAnimChargeSkill"));
+
+        if (damageCtrl.IsDead()) yield break;
+        weaponCtrl.Attack();
+        yield return new WaitForSeconds(2f);
+
+        move_ctrl.is_skip_move = false;
+    }
+
+    IEnumerator BowAttack()
+    {
+        move_ctrl.is_skip_move = true;
+
+        if (damageCtrl.IsDead()) yield break;
+        move_ctrl.Direct(move_ctrl.GetPlayerDirection());
+        animator.Play("EntityAnimChargeSkill", 0);
+        yield return new WaitForSeconds(GetAnimationClipLength("EntityAnimChargeSkill"));
+
+        if (damageCtrl.IsDead()) yield break;
+        weaponCtrl.Attack();
+        yield return new WaitForSeconds(0.5f);
+
+        weaponCtrl.use_weapon_index = 3;
+
+        weaponCtrl.Attack();
+        yield return new WaitForSeconds(2f);
+
+        move_ctrl.is_skip_move = false;
     }
 
     IEnumerator ChasingPlayer()
@@ -56,6 +135,12 @@ public class GoblinCtrl : MonoBehaviour
 
         for (float t = 0; t < LIMIT_TIME; t += TIME_INCREMENT)
         {
+            if (damageCtrl.IsDead())
+            {
+                move_ctrl.is_skip_move = true;
+                break;
+            }
+
             if (move_ctrl.GetPlayerDistance() <= DISTANCE)
             {
                 break;

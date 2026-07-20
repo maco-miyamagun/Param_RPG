@@ -212,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShareData
   level: 1
   experience: 0
-  battle_enemy_id: goblin
+  battle_enemy_id: slime
 --- !u!114 &1132501215
 MonoBehaviour:
   m_ObjectHideFlags: 0

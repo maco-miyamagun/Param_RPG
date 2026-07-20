@@ -9,6 +9,8 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] WeaponOwner weapon_owner;
 
+    [SerializeField] bool is_defense;
+
     // 必要なスクリプトを取ってくる
     void Start()
     {
@@ -29,9 +31,19 @@ public class Weapon : MonoBehaviour
     // 敵に当たったら、ダメージ処理をする
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        string TARGET_TAG_NAME = weapon_owner == WeaponOwner.Player ? "Enemy" : "Player";
+        WeaponOwner TARGET_TAG_NAME = weapon_owner == WeaponOwner.Player ? WeaponOwner.Enemy : WeaponOwner.Player;
 
-        if (collision.CompareTag(TARGET_TAG_NAME))
+        if (is_defense)
+        {
+            if (collision.CompareTag("Weapon"))
+            {
+                Destroy(collision.transform.parent.gameObject);
+                Destroy(this.transform.parent.gameObject);
+            }
+            return;
+        }
+
+        if (collision.CompareTag(TARGET_TAG_NAME.ToString()))
         {
             if (!collision.gameObject.TryGetComponent<EntityDamageCtrl>(out var damage_ctrl)) return;
 

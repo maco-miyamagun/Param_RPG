@@ -15,12 +15,12 @@ GameObject:
   - component: {fileID: 98959971526646197}
   - component: {fileID: 350232766970365943}
   - component: {fileID: 8270384086227544286}
+  - component: {fileID: 1011430764431712922}
   - component: {fileID: 7615170755912949897}
-  - component: {fileID: 7120358213851838605}
   - component: {fileID: 2142820267865308496}
   - component: {fileID: 4161877394264678727}
   m_Layer: 0
-  m_Name: Goblin
+  m_Name: Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.7075472, g: 0.25031152, b: 0.25031152, a: 1}
+  m_Color: {r: 0.6194375, g: 0.7886923, b: 0.9056604, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -216,10 +216,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponCtrl
   weapon_prefabs:
-  - {fileID: 5961669268182350680, guid: 82718d262aa154abd9c0d29fc6a4de2f, type: 3}
+  - {fileID: 115057349477723354, guid: 6f7b3c34e328d4e7ba37d0674a7247ad, type: 3}
+  - {fileID: 115057349477723354, guid: 3abe27284fbc14e27884b769d45ecea3, type: 3}
+  - {fileID: 5009915807461221623, guid: 7119409ec83304b15bada28b0622e076, type: 3}
+  - {fileID: 8421780925545051921, guid: 2a1747bc92eee41368274303b4565e3a, type: 3}
   attackCtrl: {fileID: 98959971526646197}
   use_weapon_index: 0
   fire_point: {fileID: 7524726825607009992}
+--- !u!114 &1011430764431712922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4171298026121215799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 769437d342c844e5fa1ee22b1e6d8fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SlimeCtrl
+  status: {fileID: 7615170755912949897}
+  weaponCtrl: {fileID: 8270384086227544286}
+  damageCtrl: {fileID: 350232766970365943}
+  move_ctrl: {fileID: 2142820267865308496}
+  animator: {fileID: 4161877394264678727}
 --- !u!114 &7615170755912949897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,30 +252,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb0d510a68d3433d85a99894a7aa6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityStatus
-  STR: 2
-  VIT: 30
+  STR: 7
+  VIT: 15
   AGI: 8
-  HIT_POINT: 15
+  HIT_POINT: 30
   STAMINA_MAX: 0
-  life: 15
+  life: 30
   stamina: 0
---- !u!114 &7120358213851838605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4171298026121215799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90c7191d8212644fe81a296ed326224a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GoblinCtrl
-  status: {fileID: 7615170755912949897}
-  weaponCtrl: {fileID: 8270384086227544286}
-  damageCtrl: {fileID: 350232766970365943}
-  move_ctrl: {fileID: 2142820267865308496}
-  animator: {fileID: 4161877394264678727}
 --- !u!114 &2142820267865308496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +274,8 @@ MonoBehaviour:
   entityStatus: {fileID: 7615170755912949897}
   rb: {fileID: 8459524696478141906}
   fire_core: {fileID: 7436788348240512478}
-  is_skip_move: 0
+  is_skip_move: 1
+  is_reach_move: 0
 --- !u!95 &4161877394264678727
 Animator:
   serializedVersion: 7

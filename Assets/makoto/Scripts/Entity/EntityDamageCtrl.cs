@@ -9,7 +9,7 @@ public class EntityDamageCtrl : MonoBehaviour
     // 防御力を考慮してダメージを反映する
     public void TakeDamage(int damage)
     {
-        int effectiveDamage = Mathf.Max(damage, 0);
+        int effectiveDamage = Mathf.Max(damage - entityStatus.VIT / 4, 0);
         entityStatus.life -= effectiveDamage;
     }
 
