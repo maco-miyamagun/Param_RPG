@@ -19,6 +19,7 @@ public class PlayerLevelCtrl : MonoBehaviour
             shareData.experience -= experienceThreshold; // 余剰分を繰り越す
 
             SetStatusForLevel(shareData.level);
+            entityStatus.life = entityStatus.HIT_POINT;
         }
     }
 

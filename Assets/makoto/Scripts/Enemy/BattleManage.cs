@@ -6,6 +6,12 @@ public class BattleManage : MonoBehaviour
     [SerializeField] GameObject goblin_prefub;
     [SerializeField] int GOBLIN_EXP;
 
+    [SerializeField] GameObject slime_prefub;
+    [SerializeField] int SLIME_EXP;
+
+    [SerializeField] GameObject hob_goblin_prefub;
+    [SerializeField] int HOB_GOBLIN_EXP;
+
     [SerializeField] ShareData shareData;
 
     public int reward_exp;
@@ -27,6 +33,18 @@ public class BattleManage : MonoBehaviour
                 Instantiate(goblin_prefub, transform.position, transform.rotation, this.transform);
 
                 reward_exp = GOBLIN_EXP;
+                break;
+
+            case "hob_goblin":
+                Instantiate(hob_goblin_prefub, transform.position, transform.rotation, this.transform);
+
+                reward_exp = HOB_GOBLIN_EXP;
+                break;
+
+            case "slime":
+                Instantiate(slime_prefub, transform.position, transform.rotation, this.transform);
+
+                reward_exp = SLIME_EXP;
                 break;
 
             // 無効なIDの場合のエラーハンドリング

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1056094200527926972}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   skillStatus: {fileID: 6064776311307670049}
   weapon_owner: 0
+  is_defense: 0
 --- !u!114 &9019655979060704549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c006a1dfd90840e8bc580c2d40f45ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OneHandedSword
-  startAngleZ: -45
+  startAngleZ: -100
   endAngleZ: 45
   durationSeconds: 0.2
 --- !u!114 &6064776311307670049

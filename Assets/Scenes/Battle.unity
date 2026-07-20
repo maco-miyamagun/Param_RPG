@@ -1134,6 +1134,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BattleManage
   goblin_prefub: {fileID: 4171298026121215799, guid: 62f90eac060ec4f1db975d49c9379f3e, type: 3}
   GOBLIN_EXP: 10
+  slime_prefub: {fileID: 4171298026121215799, guid: d155dca9040bb42f4bb9aa4a935f4a9b, type: 3}
+  SLIME_EXP: 200
+  hob_goblin_prefub: {fileID: 4171298026121215799, guid: 7f3394e6ff3624be29d9d612793fc556, type: 3}
+  HOB_GOBLIN_EXP: 500
   shareData: {fileID: 260040135}
   reward_exp: 0
 --- !u!1 &1264685228

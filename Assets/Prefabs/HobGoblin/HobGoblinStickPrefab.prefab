@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8746723545133991301}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   skillStatus: {fileID: 6064776311307670049}
   weapon_owner: 1
+  is_defense: 0
 --- !u!114 &9019655979060704549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OneHandedSword
   startAngleZ: -45
   endAngleZ: 45
-  durationSeconds: 0.2
+  durationSeconds: 0.5
 --- !u!114 &6064776311307670049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2978c75593ec44b43be88837b0278b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillStatus
-  base_damage: 2
+  base_damage: 5
   base_cooldown_time: 0.1
 --- !u!60 &8746723545133991301
 PolygonCollider2D:
@@ -198,7 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5947316211311361188}
   m_Layer: 0
-  m_Name: GoblinSwordPrefab
+  m_Name: HobGoblinStickPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

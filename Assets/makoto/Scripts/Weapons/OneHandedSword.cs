@@ -23,6 +23,8 @@ public class OneHandedSword : MonoBehaviour
         }
         else
         {
+            StartCoroutine(CorScaling());
+
             float elapsed = 0f;
             while (elapsed < safeDuration)
             {
@@ -35,5 +37,22 @@ public class OneHandedSword : MonoBehaviour
         }
 
         Destroy(this.transform.parent.gameObject);
+    }
+
+    IEnumerator CorScaling()
+    {
+        float safeDuration = Mathf.Max(0f, durationSeconds / 2);
+
+        float elapsed = 0f;
+        float scale_old = transform.parent.localScale.x;
+
+        while (elapsed < safeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / safeDuration);
+            float currentScale = Mathf.Lerp(0.1f * scale_old, 1 * scale_old, t);
+            transform.parent.transform.localScale = new(currentScale, currentScale, 0f);
+            yield return null;
+        }
     }
 }

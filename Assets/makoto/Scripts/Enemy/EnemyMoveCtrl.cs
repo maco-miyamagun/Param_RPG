@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyMoveCtrl : MonoBehaviour
@@ -14,6 +15,9 @@ public class EnemyMoveCtrl : MonoBehaviour
 
     public bool is_skip_move = false;
 
+    public bool is_reach_move = false;
+    Vector2 reach_target;
+
     void Awake()
     {
         player_transform = FindObjectsByType<PlayerCtrl>(FindObjectsSortMode.None)[0].GetComponent<Rigidbody2D>();
@@ -21,6 +25,12 @@ public class EnemyMoveCtrl : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (is_reach_move)
+        {
+            ReachTarget(reach_target);
+            return;
+        }
+
         if (is_skip_move) return;
 
         MovePlayer();
@@ -31,6 +41,11 @@ public class EnemyMoveCtrl : MonoBehaviour
     public void MovePlayer()
     {
         rb.position = Vector2.Lerp(rb.position, player_transform.position, entityStatus.AGI / 5 * Time.fixedDeltaTime);
+    }
+
+    public void ReachTarget(Vector2 target)
+    {
+        rb.position = Vector2.Lerp(rb.position, target, entityStatus.AGI / 2 * Time.fixedDeltaTime);
     }
 
     // 対象との距離を測る
@@ -48,6 +63,16 @@ public class EnemyMoveCtrl : MonoBehaviour
     public Vector2 GetPlayerDeltaDistance()
     {
         return player_transform.position - rb.position;
+    }
+
+    public Vector2 GetPlayerPos()
+    {
+        return player_transform.position;
+    }
+
+    public void SetReachTarget(Vector2 target)
+    {
+        reach_target = target;
     }
 
     // 方向を変える

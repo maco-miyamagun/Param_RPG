@@ -21,6 +21,6 @@ public class WeaponCtrl : MonoBehaviour
         if (weapon_prefabs[use_weapon_index] == null) return;
 
         // 指定されたインデックスの武器をインスタンス化
-        Instantiate(weapon_prefabs[use_weapon_index], fire_point.transform.position, Quaternion.identity, fire_point.transform);
+        Instantiate(weapon_prefabs[use_weapon_index], fire_point.transform.position, new(0f, 0f, 0f, 0f), fire_point.transform);
     }
 }
