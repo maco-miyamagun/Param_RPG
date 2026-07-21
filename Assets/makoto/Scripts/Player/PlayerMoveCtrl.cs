@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 public class PlayerMoveCtrl : MonoBehaviour
@@ -17,10 +18,26 @@ public class PlayerMoveCtrl : MonoBehaviour
 
     [SerializeField] StaminaBarUI staminaBarUI;
 
+    [SerializeField] Animator animator;
+
+    bool is_shift_press = false;
+
     // 入力システムから移動入力を受け取る
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+    }
+
+    public void OnDash(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            is_shift_press = true;
+        }
+        else
+        {
+            is_shift_press = false;
+        }
     }
 
     void FixedUpdate()
@@ -42,8 +59,33 @@ public class PlayerMoveCtrl : MonoBehaviour
     // 方向を変える
     public void Direct(Vector2 moveInput)
     {
+        if (moveInput.x < 0)
+        {
+            animator.SetInteger("move_dir", 0);
+        }
+        else if (moveInput.x > 0)
+        {
+            animator.SetInteger("move_dir", 1);
+        }
+
+        if (moveInput.y > 0)
+        {
+            animator.SetInteger("move_dir", 2);
+        }
+        else if (moveInput.y < 0)
+        {
+            animator.SetInteger("move_dir", 3);
+        }
+
         if (moveInput == Vector2.zero)
+        {
+            animator.SetBool("is_move", false);
             return;
+        }
+        else
+        {
+            animator.SetBool("is_move", true);
+        }
 
         float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
         fire_core.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
@@ -77,7 +119,7 @@ public class PlayerMoveCtrl : MonoBehaviour
             return entityStatus.AGI * 0.2f;
         }
 
-        if (!Keyboard.current.shiftKey.isPressed && entityStatus.stamina <= entityStatus.STAMINA_MAX)
+        if (!is_shift_press && entityStatus.stamina <= entityStatus.STAMINA_MAX)
         {
             staminaBarUI.SetVisible(true);
 
@@ -93,7 +135,7 @@ public class PlayerMoveCtrl : MonoBehaviour
             return entityStatus.AGI;
         }
 
-        if (Keyboard.current.shiftKey.isPressed && isMoving)
+        if (is_shift_press && isMoving)
         {
             entityStatus.stamina -= Time.deltaTime * DECREMENT_STAMINA;
 

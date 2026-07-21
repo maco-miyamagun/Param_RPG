@@ -210,9 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacc8858f40364d72a3adb8daf4e10a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShareData
-  level: 1
+  level: 2
   experience: 0
-  battle_enemy_id: slime
+  battle_enemy_id: goblin
 --- !u!114 &1132501215
 MonoBehaviour:
   m_ObjectHideFlags: 0
