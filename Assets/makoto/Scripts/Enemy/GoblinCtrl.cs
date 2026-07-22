@@ -130,7 +130,7 @@ public class GoblinCtrl : MonoBehaviour
         move_ctrl.is_skip_move = false;
 
         const float LIMIT_TIME = 4f;
-        const float DISTANCE = 4f;
+        const float DISTANCE = 2.7f;
         const float TIME_INCREMENT = 0.1f;
 
         for (float t = 0; t < LIMIT_TIME; t += TIME_INCREMENT)

@@ -12,6 +12,7 @@ public class PlayerShareData : MonoBehaviour
         shareData.level = data1.level;
         shareData.experience = data1.experience;
         shareData.battle_enemy_id = data1.battle_enemy_id;
+        shareData.door_id = data1.door_id;
 
         entityStatus.STR = data2.STR;
         entityStatus.VIT = data2.VIT;

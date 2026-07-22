@@ -11,7 +11,7 @@ public class GameManage : MonoBehaviour
 
     void Start()
     {
-        GameDebug();
+        GameStart();
     }
 
     public void GameStart()
