@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2978c75593ec44b43be88837b0278b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillStatus
-  base_damage: 3
+  base_damage: 2
   base_cooldown_time: 0.3
 --- !u!1 &8421780925545051921
 GameObject:

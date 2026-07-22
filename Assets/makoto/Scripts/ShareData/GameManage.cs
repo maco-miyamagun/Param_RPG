@@ -11,7 +11,7 @@ public class GameManage : MonoBehaviour
 
     void Start()
     {
-        GameDebug();
+        GameStart();
     }
 
     public void GameStart()
@@ -38,8 +38,6 @@ public class GameManage : MonoBehaviour
         {
             newScene = map_scene;
         }
-
-        Debug.Log(current_scene + newScene);
 
         foreach (var item in FindObjectsByType<PlayerShareData>(FindObjectsSortMode.None))
         {

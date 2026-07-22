@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillStatus
   base_damage: 2
-  base_cooldown_time: 1.5
+  base_cooldown_time: 0.8
 --- !u!60 &1056094200527926972
 PolygonCollider2D:
   m_ObjectHideFlags: 0
