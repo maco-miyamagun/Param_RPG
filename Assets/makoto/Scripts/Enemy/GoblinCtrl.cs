@@ -28,6 +28,10 @@ public class GoblinCtrl : MonoBehaviour
 
     IEnumerator AILogic()
     {
+        move_ctrl.is_skip_move = true;
+        yield return new WaitForSeconds(2f);
+        move_ctrl.is_skip_move = false;
+
         while (!damageCtrl.IsDead())
         {
             int dice = ChoiceAttackWeapon();

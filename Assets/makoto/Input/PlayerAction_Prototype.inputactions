@@ -212,7 +212,7 @@
                 {
                     "name": "",
                     "id": "62ce44d2-4f39-4815-989b-f9f21673edbd",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -447,8 +447,98 @@
         {
             "name": "pause",
             "id": "9e07fa40-4113-48ec-96bb-893e58a96fd5",
-            "actions": [],
-            "bindings": []
+            "actions": [
+                {
+                    "name": "WinNext",
+                    "type": "Button",
+                    "id": "cd96c4dd-88a6-4810-94c4-77b0f16a8f47",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LoseNext",
+                    "type": "Button",
+                    "id": "7c8f85a7-d0a4-43de-9974-e1a78048ccbb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "GameStart",
+                    "type": "Button",
+                    "id": "b6399093-e473-41e4-8a9e-c9fd681d2a21",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6b4015f4-3722-4c1c-aad7-d638335bd133",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WinNext",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "815f11cc-afe0-445c-b92c-30ab426189e9",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LoseNext",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "209740df-3575-4d97-b7de-110c24323bed",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GameStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "message_event",
+            "id": "f99bd286-d159-4d64-9be3-64d6d13618de",
+            "actions": [
+                {
+                    "name": "Confirm",
+                    "type": "Button",
+                    "id": "194c217d-9aab-4211-b6a0-a7439593cc19",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "72d3ef66-3dd4-45b6-a101-98adc1edc3bf",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

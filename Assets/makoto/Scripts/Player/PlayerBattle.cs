@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerBattle : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class PlayerBattle : MonoBehaviour
 
     [SerializeField] BattleClearUICtrl battleClearUI;
     [SerializeField] BattleLoseUICtrl battleLoseUI;
+
+    bool is_player_win = false;
 
     void Start()
     {
@@ -71,7 +74,6 @@ public class PlayerBattle : MonoBehaviour
 
     public void WinPlayer()
     {
-        Time.timeScale = 0f;
         playerInput.SwitchCurrentActionMap("pause");
         battleClearUI.SetVisible(true);
         battleClearUI.SetUI();
@@ -80,12 +82,22 @@ public class PlayerBattle : MonoBehaviour
         playerLevelCtrl.CheckLevelUp();
 
         battleClearUI.SetUI();
+
+        is_player_win = true;
     }
 
     public void OnWinNext()
     {
-        Time.timeScale = 1;
+        if (!is_player_win)
+        {
+            return;
+        }
+        if (damageCtrl.IsDead())
+        {
+            return;
+        }
 
+        shareData.door_id = 404;
         FindObjectsByType<GameManage>(FindObjectsSortMode.None)[0].ChangeScene("");
     }
 
@@ -98,8 +110,13 @@ public class PlayerBattle : MonoBehaviour
 
     public void OnLoseNext()
     {
+        if (!damageCtrl.IsDead())
+        {
+            return;
+        }
+
         Time.timeScale = 1;
 
-        FindObjectsByType<GameManage>(FindObjectsSortMode.None)[0].ChangeScene("Title");
+        SceneManager.LoadScene("Title");
     }
 }

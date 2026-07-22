@@ -21,6 +21,9 @@ public class MapWarpSymbol : MonoBehaviour
     {
         if (!is_trigger_active) return;
         shareData.door_id = next_door_id;
+        shareData.enable_first_enemy = true;
+        shareData.enable_second_enemy = true;
+        shareData.enable_third_enemy = true;
         FindObjectsByType<GameManage>(FindObjectsSortMode.None)[0].ChangeScene(map_name);
     }
 }

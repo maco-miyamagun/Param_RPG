@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,11 +18,33 @@ public class MoveFieldEnemy : MonoBehaviour
     private bool isWaiting;         // 停止中フラグ
     private float waitTimer;        // 残り停止時間
 
+    [SerializeField] int enemy_num;
+    [SerializeField] string enemy_name;
+    [SerializeField] ShareData shareData;
+
     private void Start()
     {
         // 開始時に初期位置を記録し、最初の目標地点を設定する
         originPosition = transform.position;
         SetNewTargetPosition();
+
+        if (enemy_num == 1 && !shareData.enable_first_enemy)
+        {
+            this.gameObject.SetActive(false);
+        }
+        if (enemy_num == 2 && !shareData.enable_second_enemy)
+        {
+            this.gameObject.SetActive(false);
+        }
+        if (enemy_num == 3 && !shareData.enable_third_enemy)
+        {
+            this.gameObject.SetActive(false);
+        }
+
+        if (enemy_name == "hob_goblin" && !shareData.exist_bos)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     private void Update()
@@ -80,8 +103,38 @@ public class MoveFieldEnemy : MonoBehaviour
         // Player タグのオブジェクトに接触したらバトルシーンへ移動する
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene("PrototypeBattleScene");
+            shareData.battle_enemy_id = enemy_name;
+            if (enemy_num == 1)
+            {
+                shareData.enable_first_enemy = false;
+            }
+            else if (enemy_num == 2)
+            {
+                shareData.enable_second_enemy = false;
+            }
+            else if (enemy_num == 3)
+            {
+                shareData.enable_third_enemy = false;
+            }
+            if (enemy_name == "hob_goblin")
+            {
+                shareData.exist_bos = false;
+            }
+
+            StartCoroutine(Encount());
         }
+    }
+
+    IEnumerator Encount()
+    {
+        BlindEffectCtrl blindEffectCtrl = FindObjectsByType<BlindEffectCtrl>(FindObjectsSortMode.None)[0];
+
+        blindEffectCtrl.TogglePlayerInput(false);
+        yield return blindEffectCtrl.BlindShow(false);
+
+        shareData.x_pos = transform.position.x;
+        shareData.y_pos = transform.position.y;
+        FindObjectsByType<GameManage>(FindObjectsSortMode.None)[0].ChangeScene("Battle");
     }
 
     private void OnDrawGizmosSelected()

@@ -18,5 +18,9 @@ public class PlayerMapWarpCtrl : MonoBehaviour
             this.transform.position = target_symbol.transform.position;
             playerMoveCtrl.Direct(target_symbol.player_dir);
         }
+        else
+        {
+            this.transform.position = new(shareData.x_pos, shareData.y_pos, 0);
+        }
     }
 }

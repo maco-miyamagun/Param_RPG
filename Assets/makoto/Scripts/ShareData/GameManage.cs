@@ -39,8 +39,6 @@ public class GameManage : MonoBehaviour
             newScene = map_scene;
         }
 
-        Debug.Log(current_scene + newScene);
-
         foreach (var item in FindObjectsByType<PlayerShareData>(FindObjectsSortMode.None))
         {
             if (item.playerShareDataType == PlayerShareDataType.HOST) continue;

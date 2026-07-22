@@ -244,8 +244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb0d510a68d3433d85a99894a7aa6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityStatus
-  STR: 10
-  VIT: 5
+  STR: 7
+  VIT: 14
   AGI: 9
   HIT_POINT: 100
   STAMINA_MAX: 0

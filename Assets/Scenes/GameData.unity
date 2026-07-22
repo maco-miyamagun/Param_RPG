@@ -214,6 +214,17 @@ MonoBehaviour:
   experience: 0
   battle_enemy_id: goblin
   door_id: 404
+  enable_first_enemy: 1
+  enable_second_enemy: 1
+  enable_third_enemy: 1
+  exist_bos: 1
+  story_progress: 0
+  keyitem_map01: 0
+  keyitem_map02: 0
+  keyitem_map04: 0
+  keyitem_map06: 0
+  x_pos: 6
+  y_pos: 1
 --- !u!114 &1132501215
 MonoBehaviour:
   m_ObjectHideFlags: 0
