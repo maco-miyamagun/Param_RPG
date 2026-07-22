@@ -210,9 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bacc8858f40364d72a3adb8daf4e10a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShareData
-  level: 2
+  level: 7
   experience: 0
-  battle_enemy_id: goblin
+  battle_enemy_id: slime
 --- !u!114 &1132501215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
   AGI: 0
   HIT_POINT: 0
   STAMINA_MAX: 0
-  life: 10
+  life: 50
   stamina: 0
 --- !u!4 &1132501216
 Transform:

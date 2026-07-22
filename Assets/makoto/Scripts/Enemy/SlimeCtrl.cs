@@ -82,8 +82,8 @@ public class SlimeCtrl : MonoBehaviour
 
         if (damageCtrl.IsDead()) yield break;
         move_ctrl.Direct(move_ctrl.GetPlayerDirection());
-        animator.Play("EntityAnimChargeSkill", 0);
-        yield return new WaitForSeconds(GetAnimationClipLength("EntityAnimChargeSkill"));
+        animator.Play("SlimeAnimChargeSkill", 0);
+        yield return new WaitForSeconds(GetAnimationClipLength("SlimeAnimChargeSkill"));
 
         if (damageCtrl.IsDead()) yield break;
         move_ctrl.Direct(move_ctrl.GetPlayerDirection());
@@ -94,7 +94,7 @@ public class SlimeCtrl : MonoBehaviour
         yield return ReachingPlayer();
 
         if (damageCtrl.IsDead()) yield break;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(2f);
     }
 
     IEnumerator JumpAttack()
@@ -103,8 +103,8 @@ public class SlimeCtrl : MonoBehaviour
         yield return ChasingPlayer();
 
         if (damageCtrl.IsDead()) yield break;
-        animator.Play("EntityAnimChargeSkill", 0);
-        yield return new WaitForSeconds(GetAnimationClipLength("EntityAnimChargeSkill"));
+        animator.Play("SlimeAnimChargeSkill", 0);
+        yield return new WaitForSeconds(GetAnimationClipLength("SlimeAnimChargeSkill"));
 
         if (damageCtrl.IsDead()) yield break;
         weaponCtrl.Attack();
@@ -117,8 +117,8 @@ public class SlimeCtrl : MonoBehaviour
 
         if (damageCtrl.IsDead()) yield break;
         move_ctrl.Direct(move_ctrl.GetPlayerDirection());
-        animator.Play("EntityAnimChargeSkill", 0);
-        yield return new WaitForSeconds(GetAnimationClipLength("EntityAnimChargeSkill"));
+        animator.Play("SlimeAnimChargeSkill", 0);
+        yield return new WaitForSeconds(GetAnimationClipLength("SlimeAnimChargeSkill"));
 
         if (damageCtrl.IsDead()) yield break;
         weaponCtrl.Attack();
@@ -137,7 +137,7 @@ public class SlimeCtrl : MonoBehaviour
         move_ctrl.is_skip_move = false;
 
         const float LIMIT_TIME = 4f;
-        const float DISTANCE = 2.5f;
+        const float DISTANCE = 4f;
         const float TIME_INCREMENT = 0.1f;
 
         for (float t = 0; t < LIMIT_TIME; t += TIME_INCREMENT)
@@ -165,7 +165,7 @@ public class SlimeCtrl : MonoBehaviour
         move_ctrl.is_reach_move = true;
 
         const float LIMIT_TIME = 2f;
-        const float DISTANCE = 0.5f;
+        const float DISTANCE = 3f;
         const float TIME_INCREMENT = 0.1f;
 
         for (float t = 0; t < LIMIT_TIME; t += TIME_INCREMENT)

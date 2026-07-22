@@ -91,8 +91,8 @@ public class HobGoblinCtrl : MonoBehaviour
         yield return ChasingPlayer();
 
         if (damageCtrl.IsDead()) yield break;
-        animator.Play("EntityAnimChargeSkill", 0);
-        yield return new WaitForSeconds(GetAnimationClipLength("EntityAnimChargeSkill"));
+        animator.Play("GoblinAnimChargeSkill", 0);
+        yield return new WaitForSeconds(GetAnimationClipLength("GoblinAnimChargeSkill"));
 
         if (damageCtrl.IsDead()) yield break;
         weaponCtrl.Attack();
@@ -105,8 +105,8 @@ public class HobGoblinCtrl : MonoBehaviour
         yield return ChasingPlayer();
 
         if (damageCtrl.IsDead()) yield break;
-        animator.Play("EntityAnimChargeSkill", 0);
-        yield return new WaitForSeconds(GetAnimationClipLength("EntityAnimChargeSkill"));
+        animator.Play("GoblinAnimChargeSkill", 0);
+        yield return new WaitForSeconds(GetAnimationClipLength("GoblinAnimChargeSkill"));
 
         if (damageCtrl.IsDead()) yield break;
         StartCoroutine(AttackRotation());
@@ -137,8 +137,8 @@ public class HobGoblinCtrl : MonoBehaviour
 
         if (damageCtrl.IsDead()) yield break;
         move_ctrl.Direct(move_ctrl.GetPlayerDirection());
-        animator.Play("EntityAnimChargeSkill", 0);
-        yield return new WaitForSeconds(GetAnimationClipLength("EntityAnimChargeSkill"));
+        animator.Play("GoblinAnimChargeSkill", 0);
+        yield return new WaitForSeconds(GetAnimationClipLength("GoblinAnimChargeSkill"));
 
         if (damageCtrl.IsDead()) yield break;
         weaponCtrl.Attack();
@@ -153,8 +153,8 @@ public class HobGoblinCtrl : MonoBehaviour
 
         if (damageCtrl.IsDead()) yield break;
         move_ctrl.Direct(move_ctrl.GetPlayerDirection());
-        animator.Play("EntityAnimChargeSkill", 0);
-        yield return new WaitForSeconds(GetAnimationClipLength("EntityAnimChargeSkill"));
+        animator.Play("GoblinAnimChargeSkill", 0);
+        yield return new WaitForSeconds(GetAnimationClipLength("GoblinAnimChargeSkill"));
 
         if (damageCtrl.IsDead()) yield break;
         weaponCtrl.Attack();
@@ -173,7 +173,7 @@ public class HobGoblinCtrl : MonoBehaviour
         move_ctrl.is_skip_move = false;
 
         const float LIMIT_TIME = 4f;
-        const float DISTANCE = 2.5f;
+        const float DISTANCE = 4f;
         const float TIME_INCREMENT = 0.1f;
 
         for (float t = 0; t < LIMIT_TIME; t += TIME_INCREMENT)

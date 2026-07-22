@@ -17,6 +17,7 @@ public class EnemyMoveCtrl : MonoBehaviour
 
     public bool is_reach_move = false;
     Vector2 reach_target;
+    [SerializeField] Animator animator;
 
     void Awake()
     {
@@ -31,7 +32,13 @@ public class EnemyMoveCtrl : MonoBehaviour
             return;
         }
 
-        if (is_skip_move) return;
+        if (is_skip_move)
+        {
+            animator.SetBool("is_move", false);
+            return;
+        }
+
+        animator.SetBool("is_move", true);
 
         MovePlayer();
         Direct(GetPlayerDirection());
@@ -79,9 +86,29 @@ public class EnemyMoveCtrl : MonoBehaviour
     public void Direct(Vector2 moveInput)
     {
         if (moveInput == Vector2.zero)
+        {
             return;
+        }
 
         float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+
+        if ((angle >= 135 && angle <= 180) || (angle <= -135 && angle >= -180))
+        {
+            animator.SetInteger("move_dir", 0);
+        }
+        else if ((angle >= 0 && angle <= 45) || (angle <= 0 && angle >= -45))
+        {
+            animator.SetInteger("move_dir", 1);
+        }
+        else if (angle >= 45 && angle <= 135)
+        {
+            animator.SetInteger("move_dir", 2);
+        }
+        else if (angle >= -135 && angle <= -45)
+        {
+            animator.SetInteger("move_dir", 3);
+        }
+
         fire_core.transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
     }
 }
