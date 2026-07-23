@@ -16,11 +16,25 @@ public class MessageWinCtrl : MonoBehaviour
     [SerializeField]
     float MESSAGE_DELAY_TIME;
 
+    bool is_next_press = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         message_text = uIDocument.rootVisualElement.Q<Label>("Message");
         ToggleShowUI(false);
+    }
+
+    public void OnNextMessage(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            is_next_press = true;
+        }
+        else
+        {
+            is_next_press = false;
+        }
     }
 
     public IEnumerator ShowMessage(string message)
@@ -38,7 +52,7 @@ public class MessageWinCtrl : MonoBehaviour
 
     public IEnumerator WaitForNextMessage()
     {
-        yield return new WaitUntil(() => Keyboard.current.eKey.isPressed);
+        yield return new WaitUntil(() => is_next_press);
         yield return new WaitForSeconds(MESSAGE_DELAY_TIME);
     }
 

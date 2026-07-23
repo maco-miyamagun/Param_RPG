@@ -16,15 +16,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Menu",
-                    "type": "Button",
-                    "id": "6a671097-ae38-4154-bf89-4ee564a0b45e",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Attack",
                     "type": "Button",
                     "id": "e2ed0dae-8a49-4e2c-b067-c164f5d6adc5",
@@ -211,28 +202,6 @@
                 },
                 {
                     "name": "",
-                    "id": "62ce44d2-4f39-4815-989b-f9f21673edbd",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Menu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4b998752-bb71-4acc-a91d-e53f75ac8227",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Menu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "7b02d1af-ecad-4342-9fb5-50959bb41706",
                     "path": "<Keyboard>/j",
                     "interactions": "",
@@ -267,7 +236,7 @@
                 {
                     "name": "",
                     "id": "7530e574-7a97-48bb-bef8-2980d1d4a901",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -449,18 +418,9 @@
             "id": "9e07fa40-4113-48ec-96bb-893e58a96fd5",
             "actions": [
                 {
-                    "name": "WinNext",
+                    "name": "Next",
                     "type": "Button",
                     "id": "cd96c4dd-88a6-4810-94c4-77b0f16a8f47",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "LoseNext",
-                    "type": "Button",
-                    "id": "7c8f85a7-d0a4-43de-9974-e1a78048ccbb",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -484,18 +444,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "WinNext",
+                    "action": "Next",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "815f11cc-afe0-445c-b92c-30ab426189e9",
-                    "path": "<Keyboard>/q",
+                    "id": "d5aec40e-4849-47d0-8946-a820273826c7",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "LoseNext",
+                    "action": "Next",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -503,6 +463,17 @@
                     "name": "",
                     "id": "209740df-3575-4d97-b7de-110c24323bed",
                     "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GameStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3bb27e70-d180-4b80-a5f5-d8c142c8322b",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -517,13 +488,13 @@
             "id": "f99bd286-d159-4d64-9be3-64d6d13618de",
             "actions": [
                 {
-                    "name": "Confirm",
-                    "type": "Button",
-                    "id": "194c217d-9aab-4211-b6a0-a7439593cc19",
+                    "name": "NextMessage",
+                    "type": "Value",
+                    "id": "be15988a-b249-4819-bbb9-e1613553d2d1",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -534,7 +505,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Confirm",
+                    "action": "NextMessage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b91ff91-efdb-4e92-86da-4797113dfcab",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextMessage",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

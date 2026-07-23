@@ -86,21 +86,6 @@ public class PlayerBattle : MonoBehaviour
         is_player_win = true;
     }
 
-    public void OnWinNext()
-    {
-        if (!is_player_win)
-        {
-            return;
-        }
-        if (damageCtrl.IsDead())
-        {
-            return;
-        }
-
-        shareData.door_id = 404;
-        FindObjectsByType<GameManage>(FindObjectsSortMode.None)[0].ChangeScene("");
-    }
-
     public void LosePlayer()
     {
         Time.timeScale = 0f;
@@ -108,15 +93,18 @@ public class PlayerBattle : MonoBehaviour
         battleLoseUI.SetVisible(true);
     }
 
-    public void OnLoseNext()
+    public void OnNext()
     {
-        if (!damageCtrl.IsDead())
+        if (damageCtrl.IsDead())
         {
+            Time.timeScale = 1;
+            SceneManager.LoadScene("Title");
+
             return;
         }
+        else if (!is_player_win && !damageCtrl.IsDead()) return;
 
-        Time.timeScale = 1;
-
-        SceneManager.LoadScene("Title");
+        shareData.door_id = 404;
+        FindObjectsByType<GameManage>(FindObjectsSortMode.None)[0].ChangeScene("");
     }
 }
