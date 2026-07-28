@@ -3,7 +3,7 @@
     <ui:VisualElement name="BG">
         <ui:VisualElement name="Container">
             <ui:Label text="敗北…" name="Name"/>
-            <ui:Label text="Qキーでコンテニュー" name="Discription"/>
+            <ui:Label text="Bボタンでコンテニュー" name="Discription"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

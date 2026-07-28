@@ -20,7 +20,15 @@ public class PlayerMoveCtrl : MonoBehaviour
 
     [SerializeField] Animator animator;
 
+    GameMusicController gameMusicController;
+
     bool is_shift_press = false;
+
+
+    void Awake()
+    {
+        gameMusicController = FindObjectsByType<GameMusicController>(FindObjectsSortMode.None)[0];
+    }
 
     // 入力システムから移動入力を受け取る
     public void OnMove(InputValue value)
@@ -52,6 +60,7 @@ public class PlayerMoveCtrl : MonoBehaviour
         Vector2 moveDirection = new Vector2(moveInput.x, moveInput.y).normalized;
 
         float moveSpeed = CalclateMoveSpeed(moveDirection.magnitude != 0);
+        gameMusicController.PlayWalkSe(moveDirection.magnitude != 0);
 
         rb.MovePosition(rb.position + moveSpeed * Time.deltaTime * moveDirection);
     }

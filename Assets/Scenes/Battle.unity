@@ -1479,6 +1479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NormalMapChangeEvent
   blindEffectCtrl: {fileID: 1260310265}
   shareData: {fileID: 260040135}
+  messageWinCtrl: {fileID: 1401469386}
 --- !u!114 &1401469386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1856,6 +1857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EntityDamageCtrl
   entityStatus: {fileID: 260040137}
   animator: {fileID: 2011676021}
+  is_player: 1
 --- !u!114 &1831161517
 MonoBehaviour:
   m_ObjectHideFlags: 0

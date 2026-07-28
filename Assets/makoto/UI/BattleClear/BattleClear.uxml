@@ -3,7 +3,7 @@
     <ui:VisualElement name="BG">
         <ui:VisualElement name="Container">
             <ui:Label text="勝利!" name="Name"/>
-            <ui:Label text="Eキーで続行" name="Discription"/>
+            <ui:Label text="Bボタンで続行" name="Discription"/>
             <ui:VisualElement name="Base">
                 <ui:Label text="LV.1" name="Level"/>
                 <ui:VisualElement name="EXPBarBase">

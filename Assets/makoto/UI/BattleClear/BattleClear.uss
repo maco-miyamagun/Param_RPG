@@ -39,7 +39,7 @@
 }
 
 #Base {
-    background-color: #e68f42d3;
+    background-color: #9e968fd3;
     align-items: center;
 
     flex-grow: 0;
