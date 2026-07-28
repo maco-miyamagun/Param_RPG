@@ -53,6 +53,8 @@ public class KeyItemCtrl : MonoBehaviour
                 return;
             }
 
+            FindObjectsByType<GameMusicController>(FindObjectsSortMode.None)[0].PlayItemGet();
+
             this.gameObject.SetActive(false);
         }
     }

@@ -3,7 +3,7 @@
     <ui:VisualElement name="BG">
         <ui:VisualElement name="Container">
             <ui:Label text="After0" name="Name"/>
-            <ui:Label text="Enterキーでスタート" name="Discription"/>
+            <ui:Label text="STARTキーを押してください" name="Discription"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

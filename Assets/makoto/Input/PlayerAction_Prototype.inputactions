@@ -201,6 +201,61 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "exhibition_controller",
+                    "id": "c0c19932-94b8-4db4-8627-2eb752cdb3f9",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "ca37dd61-a948-4cc0-9edc-e35fbc202b73",
+                    "path": "<HID::Logicool Logicool Dual Action>/hat/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "11639683-cd71-4073-a1fe-f486be821c5d",
+                    "path": "<HID::Logicool Logicool Dual Action>/hat/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "8764e817-9639-4912-a2ad-1ea2fcbb15bb",
+                    "path": "<HID::Logicool Logicool Dual Action>/hat/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "89f17a87-289f-4dcc-b42b-97fbab798b90",
+                    "path": "<HID::Logicool Logicool Dual Action>/hat/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "7b02d1af-ecad-4342-9fb5-50959bb41706",
                     "path": "<Keyboard>/j",
@@ -224,6 +279,17 @@
                 },
                 {
                     "name": "",
+                    "id": "ee1bf280-1a21-43d0-aad2-c307836cff0c",
+                    "path": "<HID::Logicool Logicool Dual Action>/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "5afa2328-6228-4092-b3d4-6e66005f4ece",
                     "path": "<Keyboard>/shift",
                     "interactions": "",
@@ -237,6 +303,17 @@
                     "name": "",
                     "id": "7530e574-7a97-48bb-bef8-2980d1d4a901",
                     "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7af06a55-5522-40ef-b4ee-973c6b99b504",
+                    "path": "<HID::Logicool Logicool Dual Action>/button5",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -461,6 +538,17 @@
                 },
                 {
                     "name": "",
+                    "id": "79266bd3-e661-478d-87bb-dedcb141704f",
+                    "path": "<HID::Logicool Logicool Dual Action>/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "209740df-3575-4d97-b7de-110c24323bed",
                     "path": "<Keyboard>/enter",
                     "interactions": "",
@@ -474,6 +562,17 @@
                     "name": "",
                     "id": "3bb27e70-d180-4b80-a5f5-d8c142c8322b",
                     "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GameStart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e0967652-baf5-48b8-bc99-d6afa4419687",
+                    "path": "<HID::Logicool Logicool Dual Action>/button10",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -513,6 +612,17 @@
                     "name": "",
                     "id": "5b91ff91-efdb-4e92-86da-4797113dfcab",
                     "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextMessage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5629cdf1-d3a3-46eb-80f5-5a815b071abb",
+                    "path": "<HID::Logicool Logicool Dual Action>/button3",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
